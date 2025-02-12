@@ -11,6 +11,7 @@ User implementation of some ML methods
 ---
 ### Future updates:
   * Random Forest
+  * Update to Gradient Descent: batch GD and early stopping
   * Simple Bayesian Grid Search and Feature Importance method for Gradient Boosting
 ---
 Intended to practice object-oriented programming and Python-based package creation. Any suggestions are welcome at <igrchv@yandex.ru>

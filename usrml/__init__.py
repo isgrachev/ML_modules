@@ -11,3 +11,4 @@ from .metrics import (
 )
 from .model_selection import GridSearch
 from .tree import DecisionTreeRegressor, DecisionTreeClassifier
+from .preprocessing import TfIdfVectorizer

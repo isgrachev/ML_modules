@@ -43,7 +43,7 @@ class TfIdfVectorizer():
             self._get_vocab(input, True)
         else:
             self._get_vocab(input)
-        self.__idf = np.log(self.__n / np.array([self.__df[key] for key in self.vocab.keys()]))
+        self._idf = np.log(self.__n / np.array([self.__df[key] for key in self.vocab.keys()]))
 
     def transform(self, input: str) -> str:
         """
@@ -60,7 +60,7 @@ class TfIdfVectorizer():
         """
 
         assert self.__df != None, 'Fit the vectorizer first! Document frequency for terms is unknown'
-        assert self.__idf.shape[0] == len(self.vocab), 'Length of IDF vector must be equal to size of vocabulary'
+        assert self._idf.shape[0] == len(self.vocab), 'Length of IDF vector must be equal to size of vocabulary'
         vocab_len = len(self.vocab.keys())
         
         if isinstance(input, list) and not isinstance(input[0], int) :
@@ -74,7 +74,7 @@ class TfIdfVectorizer():
                         continue
                     j = self.vocab[token]
                     output[i, j] += 1
-                output[i, :] = (output[i, :] / len(doc)) * self.__idf
+                output[i, :] = (output[i, :] / len(doc)) * self._idf
         
         elif isinstance(input, str):
             output = np.zeros((1, vocab_len))
@@ -87,7 +87,7 @@ class TfIdfVectorizer():
                     continue
                 j = self.vocab[token]
                 output[0, j] += 1
-            output[0, :] = (output[0, :] / len(doc)) * self.__idf
+            output[0, :] = (output[0, :] / len(doc)) * self._idf
         
         return output
 

@@ -6,6 +6,7 @@ User implementation of some ML methods
   * Linear models: Logistic Regression, Linear Regression
   * Tree: Decision Tree (both classifier and regressor)
   * Ensemble: Gradient boosting (classifier and regressor)
+  * Preprocessing: Tf-Idf Vectorizer
   * Model selection: Grid Search (does not support Gradient Boosting)
   * Metrics: rmse, mse, accuracy, recall, precision, f1
 ---
